@@ -1,1 +1,3 @@
-console.log("hello");
+makeDiamond = (char) => {
+  console.log(char);
+}
