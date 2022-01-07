@@ -1,0 +1,44 @@
+1. Define makeDiamond with character input
+2. A -> A
+3. B -> AB
+4. B -> ABB
+5. B -> ABBA
+6. B -> A\nBB\nA
+7. C -> A\nBB\nCC\nBB\nA
+8. C -> add missing dots -> complete!
+
+
+Approaches:
+1. Dictionary
+2. first upper triangle
+    1. A -> A
+    2. B -> AB, 
+    3. B -> ABB
+    4. B -> ABBA
+    5. B -> A\nBB\nA
+    6. C -> A\nBB\nCC\nBB\nA
+    7. C -> add missing dots -> complete!
+3. by colummn
+    1. C -> .\n.\n.C\n.\n.
+    2. concatenate like a[1] + b[1] every column
+
+
+A  <----
+
+.A.
+B.B <----
+.A.
+
+..A..
+.B.B.
+C...C <----
+.B.B.
+..A..
+
+...A...
+..B.B..
+.C...C.
+D.....D <----
+.C...C.
+..B.B..
+...A...
