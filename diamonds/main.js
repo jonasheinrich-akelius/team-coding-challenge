@@ -12,7 +12,7 @@ makeDiamond = (char) => {
 			if (startCharacter !== i) {
 				diamondTop += String.fromCharCode(i);
 			}
-			diamondTop += String.fromCharCode(i);
+			diamondTop += String.fromCharCode(i) + "\n";
     }
 
     const diamondBottom = reverseString(diamondTop);
