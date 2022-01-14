@@ -3,16 +3,23 @@ reverseString = (str) => {
   return array.reverse().join("");
 }
 
+getDots = (currentRow, midRow) => {
+  return ".".repeat(midRow - currentRow);
+}
+
 makeDiamond = (char) => {
     const startCharacter = 'A'.charCodeAt(0);
     const midRowCharacter = char.charCodeAt(0);
 		let diamondTop = "";
 
     for(let i = startCharacter; i < midRowCharacter; i++) {
-			if (startCharacter !== i) {
+			diamondTop += getDots(i, midRowCharacter);
+      if (startCharacter !== i) {
 				diamondTop += String.fromCharCode(i);
 			}
-			diamondTop += String.fromCharCode(i) + "\n";
+			diamondTop += String.fromCharCode(i);
+      diamondTop += getDots(i, midRowCharacter);
+      diamondTop += "\n";
     }
 
     const diamondBottom = reverseString(diamondTop);
