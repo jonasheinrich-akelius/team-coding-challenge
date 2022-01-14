@@ -24,7 +24,12 @@ makeDiamond = (char) => {
 
   const diamondBottom = reverseString(diamondTop);
 
-  const diamondMiddle = char + char;
+  let diamondMiddle;
+  if (char == "A") {
+    diamondMiddle = char;
+  } else {
+    diamondMiddle = char + char;
+  }
   const diamond = diamondTop + diamondMiddle + diamondBottom;
 
   console.log(diamond);
