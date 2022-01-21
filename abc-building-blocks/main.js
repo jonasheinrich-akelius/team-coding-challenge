@@ -1,7 +1,7 @@
 
 getBlock = (letters) => {
    return {
-      string: letters,
+      letters: letters,
       isUsed: false
     }
 }
@@ -14,7 +14,13 @@ var blocks = [
 ];
 
 createWord = (word) => {
-  console.log(word);
-  console.log(blocks);
+  var canMakeWord = false;
+  for(var i = 0; i < blocks.length; i++) {
+    var block = blocks[i];
+    if(!canMakeWord) {
+      canMakeWord = block.letters.includes(word);
+    }
+  }
+  console.log(canMakeWord);
 }
 
