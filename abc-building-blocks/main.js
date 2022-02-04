@@ -13,31 +13,31 @@ getBlocks = () => [
 ];
 
 createWord = (word) => {
-  var canMakeWord = true;
+  var foundCharWithoutBlock = false;
   const blocks = getBlocks();
   const chars = word.split("");
 
   let letterCount = 0;
   while (letterCount < chars.length) {
     var char = chars[letterCount];
-    if (canMakeWord) {
-      var foundBlock = false;
-      for (var i = 0; i < blocks.length; i++) {
-        var block = blocks[i];
-        if (!block.isUsed && block.letters.includes(char)) {
-          block.isUsed = true;
-          foundBlock = true;
-          break;
-        }
-      }
-
-      canMakeWord = foundBlock;
-    } else {
-      canMakeWord = false;
+    if (foundCharWithoutBlock) {
       break;
     }
 
+    var foundBlock = false;
+    for (var i = 0; i < blocks.length; i++) {
+      var block = blocks[i];
+      if (!block.isUsed && block.letters.includes(char)) {
+        block.isUsed = true;
+        foundBlock = true;
+        break;
+      }
+    }
+
+    foundCharWithoutBlock = !foundBlock;
+
     letterCount++;
   }
+  const canMakeWord = !foundCharWithoutBlock;
   console.log(canMakeWord);
 };
