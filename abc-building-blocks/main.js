@@ -15,10 +15,16 @@ var blocks = [
 
 createWord = (word) => {
   var canMakeWord = false;
-  for(var i = 0; i < blocks.length; i++) {
-    var block = blocks[i];
-    if(!canMakeWord) {
-      canMakeWord = block.letters.includes(word);
+  const chars = word.split("");
+  for(var letterCount = 0; letterCount < chars.length; letterCount++) {
+    var char = chars[letterCount];
+    for(var i = 0; i < blocks.length; i++) {
+      var block = blocks[i];
+      if(!canMakeWord) {
+        console.log(char);
+        console.log(block.letters);
+        canMakeWord = block.letters.includes(char);
+      }
     }
   }
   console.log(canMakeWord);
