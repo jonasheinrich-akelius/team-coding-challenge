@@ -10,6 +10,22 @@ getBlocks = () => [
   getBlock("XK"),
   getBlock("DQ"),
   getBlock("CP"),
+  getBlock("NA"),
+  getBlock("GT"),
+  getBlock("RE"),
+  getBlock("TG"),
+  getBlock("QD"),
+  getBlock("FS"),
+  getBlock("JW"),
+  getBlock("HU"),
+  getBlock("VI"),
+  getBlock("AN"),
+  getBlock("OB"),
+  getBlock("ER"),
+  getBlock("FS"),
+  getBlock("LY"),
+  getBlock("PC"),
+  getBlock("ZM"),
 ];
 
 createWord = (word) => {
