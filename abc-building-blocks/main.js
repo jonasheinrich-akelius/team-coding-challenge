@@ -1,20 +1,20 @@
-
 getBlock = (letters) => {
-   return {
-      letters: letters,
-      isUsed: false
-    }
-}
+  return {
+    letters: letters,
+    isUsed: false,
+  };
+};
 
-var blocks = [
-   getBlock("BO"),
-   getBlock("XK"),
-   getBlock("DQ"),
-   getBlock("CP"),
+getBlocks = () => [
+  getBlock("BO"),
+  getBlock("XK"),
+  getBlock("DQ"),
+  getBlock("CP"),
 ];
 
 createWord = (word) => {
   var canMakeWord = true;
+  const blocks = getBlocks();
   const chars = word.split("");
 
   let letterCount = 0;
