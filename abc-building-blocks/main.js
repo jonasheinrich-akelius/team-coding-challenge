@@ -14,22 +14,28 @@ var blocks = [
 ];
 
 createWord = (word) => {
-  var canMakeWord = false;
+  var canMakeWord = true;
   const chars = word.split("");
 
-  for(var letterCount = 0; letterCount < chars.length; letterCount++) {
+  let letterCount = 0;
+  while(letterCount < chars.length) {    
     var char = chars[letterCount];
-    if (!canMakeWord){
+    if (canMakeWord) {
       for(var i = 0; i < blocks.length; i++) {
         var block = blocks[i];
-        if(!block.isUsed && !canMakeWord ) {
+        if(!block.isUsed) {
           canMakeWord = block.letters.includes(char);
           block.isUsed = canMakeWord;
           console.log(block)
         } 
-      }
+      }      
+    } else {
+      console.log("else");
+      canMakeWord = false;
+      break;
     }
 
+    letterCount++;    
   }
   console.log(canMakeWord);
 }
