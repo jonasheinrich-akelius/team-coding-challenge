@@ -18,25 +18,26 @@ createWord = (word) => {
   const chars = word.split("");
 
   let letterCount = 0;
-  while(letterCount < chars.length) {    
+  while (letterCount < chars.length) {
     var char = chars[letterCount];
     if (canMakeWord) {
-      for(var i = 0; i < blocks.length; i++) {
+      var foundBlock = false;
+      for (var i = 0; i < blocks.length; i++) {
         var block = blocks[i];
-        if(!block.isUsed) {
-          canMakeWord = block.letters.includes(char);
-          block.isUsed = canMakeWord;
-          console.log(block)
-        } 
-      }      
+        if (!block.isUsed && block.letters.includes(char)) {
+          block.isUsed = true;
+          foundBlock = true;
+          break;
+        }
+      }
+
+      canMakeWord = foundBlock;
     } else {
-      console.log("else");
       canMakeWord = false;
       break;
     }
 
-    letterCount++;    
+    letterCount++;
   }
   console.log(canMakeWord);
-}
-
+};
