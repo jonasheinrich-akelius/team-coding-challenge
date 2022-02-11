@@ -14,7 +14,7 @@ var blocks = [
 ];
 
 createWord = (word) => {
-  var canMakeWord = false;
+  var canMakeWord = fale;
   for(var i = 0; i < blocks.length; i++) {
     var block = blocks[i];
     if(!canMakeWord) {
