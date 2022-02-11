@@ -1,7 +1,8 @@
 hasOnlyPositiveNumbers = (numbers) => {
     let hasNegativeNumber = false;
     let i = 0;
-	while(i< numbers.length) {
+	while(i < numbers.length) {
+        // is there a bug in here? :P
 		i++;   
 		const number = numbers[i];
 		if(number < 0) {
