@@ -1,14 +1,14 @@
-hasOnlyPositiveNumbers = (numbers) => {
+hasNegativeNumbers = (numbers) => {
     let i = 0;
 	while(i < numbers.length) { 
 		const number = numbers[i];
 		if(number < 0) {
             console.log(number,"should be positive!");
-            return false;
+            return true;
 		}
         i++;
 	}
-    return true;
+    return false;
 }
 
 compareFirstDigit = (numberA, numberB) => {
@@ -21,12 +21,13 @@ compareFirstDigit = (numberA, numberB) => {
 }
 
 combinedLargerstNumber = (arrayOfNumbers) => {
-
-	if(hasOnlyPositiveNumbers(arrayOfNumbers)) {
-        const sortedArray = arrayOfNumbers.sort(compareFirstDigit);
-        const joinedArray = sortedArray.join('');
-        console.log(joinedArray)
-        console.log(sortedArray)
+	if(hasNegativeNumbers(arrayOfNumbers)) {
+        return;
     }
+
+    const sortedArray = arrayOfNumbers.sort(compareFirstDigit);
+    const joinedArray = sortedArray.join('');
+    console.log(joinedArray)
+    console.log(sortedArray)
 }
 
