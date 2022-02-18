@@ -24,7 +24,7 @@ compareFirstDigit = (numberA, numberB) => {
   const firstDigitA = Number(firstDigitAAsString);
   const firstDigitB = Number(firstDigitBAsString);
 
-  return firstDigitA > firstDigitB ? 1 : -1;
+  return firstDigitA > firstDigitB ? -1 : 1;
 }
 
 largestStartingNumberOfArray = (numbers) => {
@@ -36,13 +36,17 @@ largestStartingNumberOfArray = (numbers) => {
             console.log(number,"has only one digit");
         }
     }
+ 
 }
 
+
 combinedLargerstNumber = (arrayOfNumbers) => {
+
 	if(hasOnlyPositiveNumbers(arrayOfNumbers)) {
-        console.log(largestNumberOfArray(arrayOfNumbers));
-        largestStartingNumberOfArray(arrayOfNumbers);
-        console.log(arrayOfNumbers)
+        const sortedArray = arrayOfNumbers.sort(compareFirstDigit);
+        const joinedArray = sortedArray.join('');
+        console.log(joinedArray)
+        console.log(sortedArray)
     }
 }
 
