@@ -27,7 +27,15 @@ containsEachOther = (numberA, numberB) => {
 
 compareNumbers = (numberA, numberB) => {
     if (containsEachOther(numberA, numberB)) {
-        
+        console.log('contains', numberA, numberB)
+        if(numberA < numberB){
+           const tailOfLargeNumber = String(numberB).slice(numberA.length);
+           return tailOfLargeNumber < numberA ? -1 : 1;       
+        } else if(numberB < numberA) {
+            const tailOfLargeNumber = String(numberA).slice(numberB.length);
+            return tailOfLargeNumber < numberB ? -1 : 1;   
+        }
+      
     }
     return numberA > numberB ? -1 : 1;
 }
@@ -43,7 +51,7 @@ combinedLargerstNumber = (arrayOfNumbers) => {
 
     const sortedArray = getSortedArray(arrayOfNumbers)
     const joinedArray = sortedArray.join('');
-    console.log(joinedArray)
+    console.log("joinedArray",joinedArray)
     console.log(sortedArray)
 }
 
