@@ -12,7 +12,7 @@ combinationsOfRestFunc = (rest) => {
     restArrayCopy.splice(i, 1);
     const remainingChars = restArrayCopy.join("");
 
-    combis.push(
+    combis = combis.concat(
       combinationsOfRestFunc(remainingChars).map((combi) => currentChar + combi)
     );
   }
@@ -21,7 +21,7 @@ combinationsOfRestFunc = (rest) => {
 };
 
 anagram = () => {
-  const input = "ABC";
+  const input = "BIRO";
   const combinations = combinationsOfRestFunc(input);
 
   const result = combinations.join(" ");
