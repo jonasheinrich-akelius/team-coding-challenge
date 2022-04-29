@@ -1,26 +1,29 @@
-// permutate = (mainchar) => {
-//     if(rightchars.length > 0){
-//       const joinStrings = leftchars.concat(rightchars);
-//       console.log("concat string", joinStrings.join(""))
-//     }
-// }
+combinationsOfRestFunc = (rest) => {
+  if (rest.length == 1) {
+    return [rest];
+  }
 
-permutate = (input) => {
-    const inputArray = input.split("");
-		if (inputArray.length === 0) {
-			return [];
-		} 
+  const restArray = rest.split("");
 
-		if (inputArray.length === 1) {
-			return inputArray;
-		}
+  let combis = [];
+  for (let i = 0; i < restArray.length; i++) {
+    const restArrayCopy = [...restArray];
+    const currentChar = restArray[i];
+    restArrayCopy.splice(i, 1);
+    const remainingChars = restArrayCopy.join("");
 
-    for(let i = 0; i < input.length; i++) {
-				const mainchar = inputArray[i];
-        // const rightchars = inputArray.splice(i, 1);
-        // const leftchars = inputArray.splice(-i);
-				// const remainingChars = [leftchars, rightchars]
-        permutate(mainchar);
-    }
-    console.log(input);
+    combis.push(
+      combinationsOfRestFunc(remainingChars).map((combi) => currentChar + combi)
+    );
+  }
+
+  return combis;
+};
+
+anagram = () => {
+  const input = "ABC";
+  const combinations = combinationsOfRestFunc(input);
+
+  const result = combinations.join(" ");
+  console.log(result);
 };
